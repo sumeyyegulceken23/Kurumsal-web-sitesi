@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <title>Resim</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+/* Genel stil ayarları */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Hero bölümü */
+#hero {
+    position: relative;
+    height: 100vh; /* Ekranın tamamını kaplaması için viewport yüksekliği */
+}
+
+#foto1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#hero .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+#hero .logo-navbar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hero .logo-navbar img {
+    width: 300px;
+}
+
+#hero .logo-navbar ul.navbar-nav {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#hero .logo-navbar ul.navbar-nav li.nav-item {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+#hero .logo-navbar ul.navbar-nav li.nav-item a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+/* Carousel caption */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    margin-left: -0px;
+    margin-top: 70px;
+}
+
+h2 {
+    font-size: 60px;
+    color:rgb(172, 214, 209);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+p {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-transparent {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-transparent:hover {
+    background-color: rgb(172, 214, 209);
+}
+
+.btn-rounded {
+    border-radius: 70px;
+}
+
+.btn-large {
+    padding: 11px 45px;
+    font-size: 18px;
+}
+
+/* bölüm2 */
+
+.container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+}
+
+.container .box
+{
+  position: relative;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  transition: 0.5s;
+}
+
+.container .box::before
+{
+  content:' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #9c4747;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.container .box::after
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.container .box:hover:before,
+.container .box:hover:after
+{
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+  
+}
+
+.container .box:nth-child(1):before,
+.container .box:nth-child(1):after
+{
+  background: linear-gradient(315deg, #ffbc00, #ff0058)
+}
+
+.container .box:nth-child(2):before,
+.container .box:nth-child(2):after
+{
+  background: linear-gradient(315deg, #03a9f4, #ff0058)
+}
+
+.container .box:nth-child(3):before,
+.container .box:nth-child(3):after
+{
+  background: linear-gradient(315deg, #4dff03, #00d0ff)
+}
+
+.container .box span
+{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.container .box span::before
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;  
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+}
+
+.container .box:hover span::before
+{
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.container .box span::after
+{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  animation-delay: -1s;
+}
+
+.container .box:hover span:after
+{
+  bottom: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+@keyframes animate
+{
+  0%, 100%
+  {
+    transform: translateY(10px);
+  }
+  
+  50%
+  {
+    transform: translate(-10px);
+  }
+}
+
+.container .box .content
+{
+  position: relative;
+  left: 0;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #501717;
+}
+
+.container .box:hover .content
+{
+  left: -25px;
+  padding: 60px 40px;
+}
+
+.container .box .content h2
+{
+  font-size: 2em;
+  color: #281d6b;
+  margin-bottom: 10px;
+}
+
+.container .box .content p
+{
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.container .box .content a
+{
+  display: inline-block;
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.container .box .content a:hover
+{
+  background: #ffcf4d;
+  border: 1px solid rgba(255, 0, 88, 0.4);
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+  
+}
+
+
+/*bölüm3 */
+
+.main-timeline {
+    background-color: white; /* Yeni arka plan rengi */
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.main-timeline:after{
+    content: '';
+    display: block;
+    clear: both;
+    
+}
+.main-timeline .timeline{
+    width: calc(50% + 70px);
+    margin: 0 5px 0 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    float: left;
+    
+}
+.main-timeline .timeline-content{
+    color: #555;
+    background: #fff;
+    min-height: 130px;
+    padding: 30px 150px 30px 30px;
+    border-top: none;
+    display: block;
+    position: relative;
+    text-decoration: none;
+
+}
+.main-timeline .timeline-content:before{
+    content: "";
+    background-color: #00C6DA;
+    height: 100%;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.main-timeline .timeline-content:hover{ text-decoration: none; }
+.main-timeline .timeline-icon{
+    color: #fff;
+    font-size: 40px;
+    line-height: 40px;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 16px;
+}
+.main-timeline .timeline-year{
+    color: #333;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: center;
+    transform: translateY(-50%) rotate(90deg);
+    position: absolute;
+    top: 50%;
+    right: 60px;
+}
+.main-timeline .title{
+    color: #00C6DA;
+    font-size: 23px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 5px;
+}
+.main-timeline .description{
+    font-size: 14px;
+    margin: 0;
+}
+.main-timeline .timeline:nth-child(even){
+    float: right;
+    margin: 0 0 0 5px;
+}
+.main-timeline .timeline:nth-child(even) .timeline-content{ padding: 30px 30px 30px 150px; }
+.main-timeline .timeline:nth-child(even) .timeline-content:before{
+    right: auto;
+    left: 0;
+}
+.main-timeline .timeline:nth-child(even) .timeline-icon{
+    right: auto;
+    left: 10px;
+}
+.main-timeline .timeline:nth-child(even) .timeline-year{
+    right: auto;
+    left: 60px;
+}
+.main-timeline .timeline:nth-child(4n+2) .timeline-content:before{ background-color: #00A6F9; }
+.main-timeline .timeline:nth-child(4n+2) .title{ color: #00A6F9; }
+.main-timeline .timeline:nth-child(4n+3) .timeline-content:before{ background-color: #FF3E7D; }
+.main-timeline .timeline:nth-child(4n+3) .title{ color: #FF3E7D; }
+.main-timeline .timeline:nth-child(4n+4) .timeline-content:before{ background-color: #7438B9; }
+.main-timeline .timeline:nth-child(4n+4) .title{ color: #7438B9; }
+@media screen and (max-width:767px){
+    .main-timeline .timeline,
+    .main-timeline .timeline:nth-child(even){
+        width: 100%;
+        margin: 0 0 30px;
+    }
+}
+@media screen and (max-width:576px){
+    .main-timeline .timeline .timeline-content,
+    .main-timeline .timeline:nth-child(even) .timeline-content{
+        text-align: center;
+        padding: 130px 25px 25px;
+    }
+    .main-timeline .timeline .timeline-content:before,
+    .main-timeline .timeline:nth-child(even) .timeline-content:before{
+        height: 70px;
+        width: 100%;
+    }
+    .main-timeline .timeline-icon,
+    .main-timeline .timeline:nth-child(even) .timeline-icon{
+        transform: translateY(0) translateX(-50%);
+        top: 16px;
+        left: 50%;
+        right: auto;
+    }
+    .main-timeline .timeline-year,
+    .main-timeline .timeline:nth-child(even) .timeline-year{
+        transform: translateY(0) translateX(-50%);
+        top: 80px;
+        left: 50%;
+        right: auto;
+    }
+}
+
+
+
+
+/* BÖLÜN 4 */
+
+
+
+h1 {
+    color: rgb(172, 214, 209);
+    font-family: Amita;
+    margin: 20px auto;
+    width: 450px;
+    font-size: 3rem;
+    text-align: center;
+    border-bottom: 10px double #bc6c25;
+}
+
+#foto{
+    width: 450px;
+    height: 300px;
+    margin: 10px;
+    border: 5px solid #fefae0;
+ 
+    transition-duration: 1s;
+}
+
+#foto:hover {
+    border: 5px solid #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: none;
+    filter: none;
+}
+
+
+
+
+    </style>
+  </head>
+  <body>
+       <div id="hero">
+        <img id="foto1" src="img/resimm_01.jpg" class="d-block w-100" alt="...">
+    
+        <div class="content">
+            <div class="logo-navbar">
+                <div class="logo">
+                    <img src="img/yataylogo.png">
+                </div>
+                <div class="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="banner.html">Ana Sayfa</a></li>
+                        <li class="nav-item"><a href="satranc.html">Satranç</a></li>
+                        <li class="nav-item"><a href="etüt.html">Etüt</a></li>
+                        <li class="nav-item"><a href="müzik.html">Müzik</a></li>
+                        <li class="nav-item"><a href="yazılım.html">Yazılım Ve Robotik Kodlama</a></li>
+                        <li class="nav-item"><a href="resim.html">Resim</a></li>
+                        <li class="nav-item"><a href="ingilizce.html">İngilizce</a></li>
+                        <li class="nav-item"><a href="hızlıokuma.html">Hızlı Okuma</a></li>
+                        <li style="background-color: red;padding: 8px 15px !important;" class="nav-item"><a href="iletişim.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="carousel-caption">
+                <h2 class="animated fadeInLeft">Resim Dersleri</h2>
+                <p class="animated fadeInUp"> Yaratıcılığınızı Resim Dersleriyle Keşfedin</p>
+                <a href="#" class="btn btn-transparent btn-rounded btn-large">DETAYLI BİLGİ </a>
+            </div>
+        </div>
+    </div>
+    
+
+
+<!--bölüm2-->
+<div class="container">
+    <div class="box">
+      <span></span>
+      <div class="content">
+        <h2> Yaratıcılığınızı Resim Dersleriyle Keşfedin</h2>
+        <p>Sanat, duyguların ve düşüncelerin ifadesi için bir araç olarak insanlık tarihinde var olmuştur. Resim dersleri, öğrencilere bu sanatın büyülü dünyasını keşfetme ve kendi yaratıcı potansiyellerini açığa çıkarma fırsatı sunar.</p>
+        <a href="#">Detaylı Bilgi</a>
+      </div>
+    </div>
+    <div class="box">
+      <span></span>
+      <div class="content">
+        <h2> Resim Dersleriyle Yaratıcılığınızı Renklendirin</h2>
+        <p>Resim dersleri, öğrencilere sanatın inceliklerini keşfetme ve kendi yaratıcı potansiyellerini ortaya çıkarma fırsatı sunar. Farklı renk paletleri ve teknikler kullanarak, düşüncelerini tuval üzerine aktarmanın keyfini yaşarlar.</p>
+        <a href="#">Detaylı Bilgi</a>
+      </div>
+    </div>
+    <div class="box">
+      <span></span>
+      <div class="content">
+        <h2>Tuvalin Büyülü Dünyasında Yolculuk</h2>
+        <p>Tuvalin üzerine yansıttıklarıyla kendi iç dünyalarını keşfeden öğrenciler, renklerin ve formların büyülü dünyasına adım atarlar. Farklı resim teknikleri ve tarzlarıyla deneyimler yaparak, öğrencilerin sanat anlayışı ve becerileri giderek gelişir.</p>
+        <a href="#">Detaylı Bilgi</a>
+      </div>
+    </div>
+  </div>
+    
+
+ <!--bölüm3-->
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-timeline">
+                <div class="timeline">
+                    <a href="#" class="timeline-content">
+                        <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+                        <div class="timeline-year">HAYAL</div>
+                        <h3 class="title">Sanatın İnceliklerini Keşfedin: Karakalem Resim Kursu</h3>
+                        <p class="description">
+                            Dinamik Kişisel Eğitim Merkezi olarak, sanat tutkunları için özel olarak tasarlanmış bir Karakalem Resim Kursu sunuyoruz. Karakalem, sanatın en klasik ve etkileyici tekniklerinden biridir ve öğrencilerimize yaratıcılıklarını ifade etmek için mükemmel bir araç sağlar. Uzman sanat eğitmenlerimiz rehberliğinde, öğrencilerimiz kara kalem tekniğini adım adım öğrenirler.                        </p>
+                    </a>
+                </div>
+                <div class="timeline">
+                    <a href="#" class="timeline-content">
+                        <div class="timeline-icon"><i class="fa fa-rocket"></i></div>    
+                        <div class="timeline-year">SANAT</div>
+                        <h3 class="title">Renklerin Büyüsüyle Tanışın: Yağlı Boya Kursu</h3>
+                        <p class="description">
+                            Kurs boyunca, öğrencilerimiz farklı konuları ve kompozisyonları yağlı boya ile resmetme fırsatı bulurlar, böylece sanat becerilerini sürekli olarak geliştirirler. Yağlı Boya Kursu ile öğrencilerimizi renklerin büyüsüne kapılmaya ve yaratıcılıklarını özgürce ifade etmeye davet ediyoruz.                        </p>
+                    </a>
+                </div>
+                <div class="timeline">
+                    <a href="#" class="timeline-content">
+                        <div class="timeline-icon"><i class="fa fa-globe"></i></div>
+                        <div class="timeline-year">ESTETİK</div>
+                        <h3 class="title">Yaratıcılığınızı İfade Etmenin Yeni Yolu: Yetişkin Resim Kursu</h3>
+                        <p class="description">
+                            Bu kurs, yetişkinlerin sanat becerilerini keşfetmeleri ve geliştirmeleri için mükemmel bir fırsattır. Yetişkin Resim Kursu ile yaratıcılığınızı keşfedin, sanatın büyülü dünyasına adım atın ve kendinizi ifade etmenin keyfini çıkarın. Bugün bizimle birlikte resim yapma tutkunuzu paylaşın!                        </p>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!--BÖLÜM 4-->
+
+    <h1>DERSLERİMİZ</h1>
+    <div class="container-fluid">
+        <img id="foto" src="img/RESİM2.jpeg" alt="ders">
+        <img id="foto" src="img/resim3.jpeg" alt="ders">
+        <img id="foto" src="img/resim4.jpeg" alt="ders">
+        <img id="foto" src="img/resimm_01.jpg" alt="ders">
+        <img id="foto" src="img/resim7.jpg" alt="ders">
+        <img id="foto" src="img/resim7 (2).jpg" alt="ders">
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

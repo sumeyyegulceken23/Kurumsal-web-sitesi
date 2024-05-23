@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>İngilizce</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+        }
+
+        #hero {
+            position: relative;
+            height: 100vh;
+            z-index: 30;
+        }
+
+        #foto {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #hero .content {
+            background: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            width: 100%;
+            z-index: 20;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #hero .content h1,
+        #hero .content p {
+            color: #FFF;
+            font-family: Arial, sans-serif;
+        }
+
+        #hero .logo-navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: calc(100% - 40px);
+        }
+
+        #hero .logo-navbar img {
+            width: 300px;
+        }
+
+        #hero .logo-navbar ul.navbar-nav {
+            list-style-type: none;
+            display: inline;
+            margin: 0;
+            padding: 0;
+        }
+
+        #hero .logo-navbar ul.navbar-nav li.nav-item {
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        #hero .logo-navbar ul.navbar-nav li.nav-item a {
+            color: #FFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .carousel-caption{
+            margin-left: -190px;
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 60px;
+            color:rgb(172, 214, 209);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        p {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-transparent {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-transparent:hover {
+            background-color: rgb(172, 214, 209);
+        }
+
+        .btn-rounded {
+            border-radius: 70px;
+        }
+
+        .btn-large {
+            padding: 11px 45px;
+            font-size: 18px;
+        }
+
+        /* Bölüm 2 için stiller */
+        h1 {
+            text-align: center;
+            color: rgb(113, 169, 162);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-top: 50px;
+        }
+
+        .bolum2-list {
+            --col-gap: 2rem;
+            --barH: 1rem;
+            --roleH: 2rem;
+            --flapH: 2rem;
+
+            width: min(60rem, 90%);
+            margin-inline: auto;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: var(--col-gap);
+            padding-inline: calc(var(--col-gap) / 2);
+
+            justify-content: center;
+            align-items: flex-start;
+            list-style: none;
+            z-index: 10;
+        }
+
+        .bolum2-list li {
+            width: 10em;
+            display: grid;
+            grid-template:
+                "role"
+                "icon"
+                "title"
+                "descr";
+            align-items: flex-start;
+            gap: 1rem;
+            padding-block-end: calc(var(--flapH) + 1rem);
+            text-align: center;
+            background: var(--accent-color);
+            background-image: linear-gradient(
+                rgba(0, 0, 0, 0.6) var(--roleH),
+                rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
+                rgba(0, 0, 0, 0) calc(var(--roleH) + 0.5rem + 5rem)
+            );
+            clip-path: polygon(
+                calc(var(--col-gap) / -2 - 5px) 0,
+                calc(100% + var(--col-gap) / 2 + 5px) 0,
+                calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+                50% 100%,
+                calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
+            );
+        }
+
+        /* bar */
+        .bolum2-list li::before {
+            content: "";
+            grid-area: role;
+            height: var(--barH);
+            width: calc(100% + var(--col-gap));
+            margin-left: calc(var(--col-gap) / -2);
+            margin-top: calc(var(--roleH) / 2 - var(--barH) / 2);
+            background: grey;
+            z-index: -1;
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.2) 30%,
+                rgba(255, 255, 255, 0.1) 40%,
+                rgba(0, 0, 0, 0.1) 60%,
+                rgba(0, 0, 0, 0.2) 70%,
+                rgba(0, 0, 0, 0.4)
+            );
+        }
+
+        /* role */
+        .bolum2-list li::after {
+            content: "";
+            grid-area: role;
+            background: var(--accent-color);
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.2) 30%,
+                rgba(255, 255, 255, 0.1) 40%,
+                rgba(0, 0, 0, 0.1) 60%,
+                rgba(0, 0, 0, 0.2) 70%,
+                rgba(0, 0, 0, 0.4)
+            );
+            height: var(--roleH);
+        }
+
+        .bolum2-list li .icon,
+        .bolum2-list li .title,
+        .bolum2-list li .descr {
+            padding-inline: 1rem;
+            color: white;
+            text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+        }
+
+        .bolum2-list li .icon {
+            font-size: 3rem;
+        }
+
+        .bolum2-list li .title {
+            font-size: 1.25rem;
+            font-weight: 470;
+            color: black;
+            font-style: italic;
+        }
+
+        .bolum2-list li .descr {
+            font-size: 0.9rem;
+        }
+
+        .credits {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+        }
+
+        .credits a {
+            color: var(--color);
+        }
+
+
+        .bölüm2 {
+        margin-top: 20px; /* Adjust the margin-top as needed */
+        padding: 20px; /* Aradaki boşluğun iç kenar boşluğu */
+        overflow: hidden; /* İçeriğin dışarı taşmasını engelle */
+    }
+
+    .bölüm2 .col-md-5 img {
+        max-width: 100%; /* İçeriğin maksimum genişliğini div'e sığacak şekilde ayarla */
+        height: auto; /* Yüksekliği otomatik ayarla */
+    }
+
+    .bölüm2 .col-md-5,
+    .bölüm2 .col-md-7 {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .shape {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+  }
+  .shape:before, .shape:after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid black;
+    margin: 0 10px;
+  }
+
+  .kart {
+    width: 365px; /* Kartın genişliğini buradan ayarlayabilirsiniz */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #f3f4f8;
+}
+
+
+.yesil-tik {
+    color: green;
+    margin-right: 5px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style: none; /* Listenin öğe işaretini kaldırma */
+}
+
+.button {
+    background: transparent; /* Kırmızı renk */
+    border: 3px solid #d7d9e3;
+    color: #0e1133;
+    padding: 10px 20px; /* Daha küçük boyut */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px; /* Daha küçük yazı boyutu */
+    cursor: pointer;
+    border-radius: 5px; /* Daha küçük kenar yarıçapı */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #CC0000;
+    color: white; /* Koyu kırmızı renk */
+}
+
+.kart-container {
+    text-align: center; /* Kartları ortalamak için */
+}
+
+#kartlar-container {
+    display: flex; /* Kartları yatay olarak hizalamak için */
+    justify-content: center; /* Kartları merkeze hizalamak için */
+    flex-wrap: wrap; /* Kartların sığmadığı durumda alt satıra geçmesini sağlar */
+}
+.kart {
+    width: calc(25% - 20px); /* Kartların genişliği %25 olacak ve aralarında 20 piksel boşluk bırakılacak */
+    margin: 10px; /* Kartların arasında 10 piksellik boşluk olacak */
+}
+
+
+.galeri{
+  margin: 5px;
+  border: 1px solid white;
+  float:left;
+  width: 180px;
+  margin-top: 50px;
+}
+
+.galeri:hover{
+  border: 2px solid rgb(85, 147, 140);
+}
+
+.galeri img{
+  width: 100%;
+  height: auto;
+}
+
+.galeri.aciklama{
+  padding: 10px;
+  text-align: center;
+
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('satranc-tasi-icon.png') no-repeat center center;
+    background-size: cover;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .content {
+    font-family: "Bree Serif", sans-serif;
+    padding: 0px 40px 30px 40px;
+  }
+
+    </style>
+</head>
+<body>
+    <div id="hero">
+        <img id="foto" src="img/İNG10.png" alt="Yazılım ve Robotik Kodlama" />
+        <div class="content">
+            <div class="logo-navbar">
+                <div class="logo">
+                    <img src="img/yataylogo.png" alt="Logo">
+                </div>
+                <div class="navbar">
+                    <ul class="navbar-nav hero-list">
+                        <li class="nav-item"><a href="banner.html">Ana Sayfa</a></li>
+                        <li class="nav-item"><a href="satranc.html">Satranç</a></li>
+                        <li class="nav-item"><a href="etüt.html">Etüt</a></li>
+                        <li class="nav-item"><a href="müzik.html">Müzik</a></li>
+                        <li class="nav-item"><a href="yazılım.html">Yazılım Ve Robotik Kodlama</a></li>
+                        <li class="nav-item"><a href="resim.html">Resim</a></li>
+                        <li class="nav-item"><a href="ingilizce.html">İngilizce</a></li>
+                        <li class="nav-item"><a href="hızlıokuma.html">Hızlı Okuma</a></li>
+                        <li style="background-color: red;padding: 8px 15px !important;" class="nav-item"><a href="iletişim.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--bölüm2-->
+    <h1>PROGRAMLARIMIZ</h1>
+    <ul class="bolum2-list">
+        <li style="--accent-color:#0B374D">
+            <div class="icon"><i class="fab fa-codepen"></i></div>
+            <div class="title">READ STORY BOOK</div>
+            <div class="descr">İngilizce kursumuzda hikaye kitapları okuma aktivitesi, öğrencilerimize dil öğrenme sürecinde eğlenceli bir yol sunar.</div>
+        </li>
+        <li style="--accent-color:#1286A8">
+            <div class="icon"><i class="fab fa-html5"></i></div>
+            <div class="title">UTİLİZE SONGS</div>
+            <div class="descr">Müzik, İngilizce öğrenme sürecinde güçlü bir araçtır. Şarkılar, dilin ritmini ve telaffuzunu öğrencilere aktarırken aynı zamanda kelime dağarcığını genişletmelerine yardımcı olur. </div>
+        </li>
+        <li style="--accent-color:#D2B53B">
+            <div class="icon"><i class="fab fa-css3"></i></div>
+            <div class="title">ENGAGE İN GAMES</div>
+            <div class="descr">İngilizce kurslarımızda dinleme pratiği yapma, öğrencilerimizin dilin duyduklarıyla etkileşime geçmelerini sağlar.  </div>
+        </li>
+        <li style="--accent-color:#AC2A1A">
+            <div class="icon"><i class="fab fa-github"></i></div>
+            <div class="title">MEMORİZE  VOCABULARİES</div>
+            <div class="descr">Kurslarımızda öğrencilerimize kelime ezberleme yöntemleri sunarak kelime dağarcıklarını genişletmelerine,yeni kelimeleri hatırlamalarını ve kullanmalarını sağlıyoruz. </div>
+        </li>
+        <li style="--accent-color:#DA611E">
+            <div class="icon"><i class="fab fa-js"></i></div>
+            <div class="title">LİSTENİNG PRACTİCE</div>
+            <div class="descr">Öğrencilerimiz, çeşitli konuşma parçalarını ve ses kayıtlarını dinleyerek anlama becerilerini geliştirirler. </div>
+        </li>
+    </ul>
+
+
+    <!--bölüm3-->
+    <div class="section-header">
+        <h1 style="margin: auto; text-align: center;" class="widget-title">PROGRAMLAR</h1>
+
+        <div class="shape"> 
+            <div class="shape-before"></div>
+            <span>⭐️</span> <!-- Yıldız işareti yerine başka bir şekil kullanabilirsiniz -->
+            <div class="shape-after"></div>
+          </div>
+        </div>
+      
+
+
+
+    <div id="kartlar-container">
+        <div class="kart" id="kart1" onclick="kartDetayGoster(1)">
+            <h2 style="color: #414895;white-space: nowrap;font-size: 22px;">Konuşma Becerilerini Geliştirme</h2>
+          <ul>
+            <li><span class="yesil-tik">&#10004;</span>Günlük yaşamda sık kullanılan ifadelerin pratik yapılması.</li>
+            <li><span class="yesil-tik">&#10004;</span>Grup tartışmaları ve etkileşimli konuşma aktiviteleri.</li>
+            <li><span class="yesil-tik">&#10004;</span>Rol yapma ve diyalog çalışmaları.</li>
+            <li><span class="yesil-tik">&#10004;</span>Sunum pratiği ve konuşma fırsatları.</li>
+          </ul>
+          <button class="button">Bilgi Alın</button>
+        </div>
+
+        <div class="kart" id="kart2" onclick="kartDetayGoster(2)">
+            <h2 style="color: #414895;white-space: nowrap;font-size: 22px;">Yazma Yeteneklerini Güçlendirme</h2>
+            <ul>
+            <li><span class="yesil-tik">&#10004;</span>Farklı türlerde yazı örneklerinin analizi.</li>
+            <li><span class="yesil-tik">&#10004;</span>Kompozisyon ve makale yazma</li>
+            <li><span class="yesil-tik">&#10004;</span> Öğrenci yazılarının değerlendirilmesi.</li>
+            <li><span class="yesil-tik">&#10004;</span>Kreatif yazma ve hikaye oluşturma etkinlikleri.</li>
+          </ul>            
+          <button class="button">Bilgi Alın</button>
+
+        </div>
+
+        <div class="kart" id="kart3" onclick="kartDetayGoster(3)">
+            <h2 style="color: #414895;white-space: nowrap;font-size: 22px;">Okuma Becerilerini Geliştirme</h2>
+            <ul>
+                <li><span class="yesil-tik">&#10004;</span>Farklı türlerde İngilizce metinlerin okunması.</li>
+                <li><span class="yesil-tik">&#10004;</span>Kelime dağarcığını geliştirme. </li>
+                <li><span class="yesil-tik">&#10004;</span>Okuma stratejilerinin öğrenilmesi </li>
+                <li><span class="yesil-tik">&#10004;</span>Kitap kulübü etkinlikleri ile okuma alışkanlığının desteklenmesi.</li>
+              </ul>         
+              <button class="button">Bilgi Alın</button>
+            </div>
+
+         
+            <div class="kart" id="kart1" onclick="kartDetayGoster(1)">
+                <h2 style="color: #414895;white-space: nowrap;font-size: 18px;">Dinleme ve Anlama Becerilerini Artırma</h2>
+              <ul>
+                <li><span class="yesil-tik">&#10004;</span> Dinleme pratiği için çeşitli kaynaklardan ses dosyalarının dinlenmesi.</li>
+                <li><span class="yesil-tik">&#10004;</span>Dinleme sınavları ve alıştırmalarla anlama seviyesinin ölçülmesi. </li>
+                <li><span class="yesil-tik">&#10004;</span>Sözlü anlatımın yanı sıra anlam çıkarımı ve çeşitli akademik metinlerin analizi. </li>
+                <li><span class="yesil-tik">&#10004;</span>İngilizce podcast'lerin ve videoların dinlenmesi </li>
+              </ul>
+              <button class="button">Bilgi Alın</button>
+            </div>
+
+          
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

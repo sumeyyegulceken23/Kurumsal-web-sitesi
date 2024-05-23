@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Satranç</title>
+    <style>
+     
+     body { margin: 0; padding: 0; }
+
+#hero {
+    position: relative;
+}
+
+#foto {
+    width: 100%; /* Tam genişlik */
+}
+
+#hero .content {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Center content vertically */
+    color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+#hero .logo-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px); /* Adjust the width as needed */
+}
+
+#hero .logo-navbar img {
+    width: 300px; /* Adjust the width of the logo as needed */
+}
+
+#hero .logo-navbar ul.navbar-nav {
+    list-style-type: none;
+    display: inline; /* Change display to inline */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+#hero .logo-navbar ul.navbar-nav li.nav-item {
+    margin-right: 20px; /* Adjust the spacing between navbar items */
+    display: inline-block; /* Display items inline-block */
+}
+
+#hero .logo-navbar ul.navbar-nav li.nav-item a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.bölüm2 {
+        margin-top: 20px; /* Adjust the margin-top as needed */
+        padding: 20px; /* Aradaki boşluğun iç kenar boşluğu */
+        overflow: hidden; /* İçeriğin dışarı taşmasını engelle */
+    }
+
+    .bölüm2 .col-md-5 img {
+        max-width: 100%; /* İçeriğin maksimum genişliğini div'e sığacak şekilde ayarla */
+        height: auto; /* Yüksekliği otomatik ayarla */
+    }
+
+    .bölüm2 .col-md-5,
+    .bölüm2 .col-md-7 {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .shape {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+  }
+  .shape:before, .shape:after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid black;
+    margin: 0 10px;
+  }
+
+  .kart {
+    width: 365px; /* Kartın genişliğini buradan ayarlayabilirsiniz */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #f3f4f8;
+}
+
+
+.yesil-tik {
+    color: green;
+    margin-right: 5px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style: none; /* Listenin öğe işaretini kaldırma */
+}
+
+.button {
+    background: transparent; /* Kırmızı renk */
+    border: 3px solid #d7d9e3;
+    color: #0e1133;
+    padding: 10px 20px; /* Daha küçük boyut */
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px; /* Daha küçük yazı boyutu */
+    cursor: pointer;
+    border-radius: 5px; /* Daha küçük kenar yarıçapı */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #CC0000;
+    color: white; /* Koyu kırmızı renk */
+}
+
+.kart-container {
+    text-align: center; /* Kartları ortalamak için */
+}
+
+#kartlar-container {
+    display: flex; /* Kartları yatay olarak hizalamak için */
+    justify-content: center; /* Kartları merkeze hizalamak için */
+    flex-wrap: wrap; /* Kartların sığmadığı durumda alt satıra geçmesini sağlar */
+}
+.kart {
+    width: calc(25% - 20px); /* Kartların genişliği %25 olacak ve aralarında 20 piksel boşluk bırakılacak */
+    margin: 10px; /* Kartların arasında 10 piksellik boşluk olacak */
+}
+
+
+.galeri{
+  margin: 5px;
+  border: 1px solid white;
+  float:left;
+  width: 180px;
+  margin-top: 50px;
+}
+
+.galeri:hover{
+  border: 2px solid rgb(85, 147, 140);
+}
+
+.galeri img{
+  width: 100%;
+  height: auto;
+}
+
+.galeri.aciklama{
+  padding: 10px;
+  text-align: center;
+
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('satranc-tasi-icon.png') no-repeat center center;
+    background-size: cover;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .content {
+    font-family: "Bree Serif", sans-serif;
+    padding: 0px 40px 30px 40px;
+  }
+
+  /*yeni bölüm */
+
+  @import url("https://fonts.googleapis.com/css?family=Lato:200,300,400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:200,400,400i,700");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Lato, sans-serif;
+}
+
+.container {
+	padding: 5vw;
+  
+}
+.container h1 {
+	font-size: 2.5em;
+/* 	margin-bottom: 2em; */
+	text-transform: uppercase;
+	letter-spacing: 10px;
+	text-align: center;
+	font-family: Lora, serif;
+	font-weight: 200;
+  margin-top: 70px;
+}
+.container h1::before {
+	content: '─';
+	margin-right: 0.6em;
+	color: #686868;
+  margin-top: 100px;
+}
+.container h1::after {
+	content: '─';
+	margin-left: 0.6em;
+	color: #686868;
+}
+.boxes {
+	margin-top: 100px;
+	display: flex;
+	justify-content: space-evenly;
+}
+.boxes:last-child {
+	margin-top: 120px;
+}
+.box {
+	width: 30vw;
+	font-size: 1em;
+	line-height: 1.5em;
+	font-weight: 200;
+	padding: 0 4vw 4vw;
+	border-right: 2px;
+	border-left: 0;
+	border-style: solid;
+/* 	border-image: linear-gradient(to bottom, #ccc, #555 66%, #181818) 1 100%; */
+	border-image: linear-gradient(to bottom, #181818, #eee, #181818) 1 100%;
+}
+.box:last-child {
+	border-right: 0;
+}
+.box .icon {
+	font-size: 4em;
+	color: #3b0b0b;
+	margin-bottom: 0.6em;
+}
+.box .icon:hover {
+	color: #752b2b;
+}
+.box h2 {
+	font-size: 1.3em;
+	margin-bottom: 1em;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: 200;
+	line-height: 1em;
+	color: #b53e3e;
+}
+.box .piece-count {
+	font-style: italic;
+	color: #9f9f9f;
+	margin-bottom: 1.2em;
+	letter-spacing: 1px;
+	font-family: Lora, serif;
+}
+
+
+
+</style>
+
+</style>
+</head>
+<body>
+    <div id="hero">
+        <img id="foto" src="img/slider.png" class="d-block w-100" alt="...">
+    
+        <div class="content">
+            <div class="logo-navbar">
+                <div class="logo">
+                    <img src="img/yataylogo.png">
+                </div>
+                <div class="navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="banner.html">Ana Sayfa</a></li>
+                        <li class="nav-item"><a href="satranc.html">Satranç</a></li>
+                        <li class="nav-item"><a href="etüt.html">Etüt</a></li>
+                        <li class="nav-item"><a href="müzik.html">Müzik</a></li>
+                        <li class="nav-item"><a href="yazılım.html">Yazılım Ve Robotik Kodlama</a></li>
+                        <li class="nav-item"><a href="resim.html">Resim</a></li>
+                        <li class="nav-item"><a href="ingilizce.html">İngilizce</a></li>
+                        <li class="nav-item"><a href="hızlıokuma.html">Hızlı Okuma</a></li>
+                        <li style="background-color: red;padding: 8px 15px !important;" class="nav-item"><a href="iletişim.html">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="bölüm2">
+        <div class="row">
+        <div class="col-md-5">
+          <img src="img/e6.1.jpeg">
+        </div>
+    
+        <div class="col-md-7">
+            <p style="color: #357053; font-family: 'Open Sans', Helvetica, Arial, sans-serif; line-height: 1.6; font-size: 20px; text-align: justify;">
+                Dinamik Kişisel Eğitim Merkezi'nde satranç dersleri belirli seviye grupları ve yaş gruplarına göre ayrılmıştır. Deneyimli antrenörlerimiz tarafından seviye tespiti yapılan öğrenciler, Okul Öncesi, Başlangıç, Orta, İleri Düzey, satranç gruplarına yönlendirilir. Ayrıca Dinamik kişisel eğitim merkezinde yetişkin satranç grupları da bulunmaktadır.<br><br> Seviye tespit ve yaşları göz önünde bulundurularak uygun gruplara yerleştirilen öğrencilerimiz yıl boyunca merkezimizde eğitim alırlar.<br><br> Satranç derslerimiz “Okul Öncesi ve Başlangıç” grupları için haftada 2 saat, ayda toplam 8 saattir. “Orta ve İleri” seviye gruplarımız haftada 2 saat, ayda toplam 8 saat eğitim alırlarlar. Yetişkin grupları haftada 2 saat eğitim alırlar.<br><br> Deneyimli antrenörlerimiz tarafından hazırlanan ayrıntılı yıllık ders programı sayesinde öğrencilerimizin satranç anlayışını geliştirmeyi hedefliyoruz.
+            </p>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="section-header">
+        <h1 style="margin: auto; text-align: center;" class="widget-title">SATRANÇ DERSLERİ</h1>
+
+        <div class="shape"> 
+            <div class="shape-before"></div>
+            <span>⭐️</span> <!-- Yıldız işareti yerine başka bir şekil kullanabilirsiniz -->
+            <div class="shape-after"></div>
+          </div>
+        </div>
+      
+
+
+        <div id="kartlar-container">
+            <div class="kart" id="kart1" onclick="kartDetayGoster(1)">
+                <h2 style="color: #414895;white-space: nowrap;font-size: 28px;">Altyapı  Grupları</h2>
+              <ul>
+                <li><span class="yesil-tik">&#10004;</span>5-6 Yaş arası</li>
+                <li><span class="yesil-tik">&#10004;</span>Ayda 8 Saat Ders</li>
+                <li><span class="yesil-tik">&#10004;</span>Haftalık ödev takibi</li>
+                <li><span class="yesil-tik">&#10004;</span>Gruba özel çalışma programı</li>
+              </ul>
+              <button class="button">Bilgi Alın</button>
+            </div>
+
+            <div class="kart" id="kart2" onclick="kartDetayGoster(2)">
+                <h2 style="color: #414895;white-space: nowrap;font-size: 28px;">Turnuva Hazırlık Grupları</h2>
+                <ul>
+                <li><span class="yesil-tik">&#10004;</span>7 Yaş Ve Üzeri</li>
+                <li><span class="yesil-tik">&#10004;</span>Ayda 8-10 Saat Ders</li>
+                <li><span class="yesil-tik">&#10004;</span>Haftalık ödev takibi</li>
+                <li><span class="yesil-tik">&#10004;</span>Haftalık Online Turnuvalar</li>
+              </ul>            
+              <button class="button">Bilgi Alın</button>
+
+            </div>
+
+            <div class="kart" id="kart3" onclick="kartDetayGoster(3)">
+                <h2 style="color: #414895;white-space: nowrap;font-size: 28px;">Yetişkin Satranç Dersleri</h2>
+                <ul>
+                    <li><span class="yesil-tik">&#10004;</span>Max 6 Kişilik Özel Sınıflar</li>
+                    <li><span class="yesil-tik">&#10004;</span>Ayda 8 Saat Ders</li>
+                    <li><span class="yesil-tik">&#10004;</span>Haftalık ödev takibi</li>
+                    <li><span class="yesil-tik">&#10004;</span>Haftalık Online Turnuvalar</li>
+                  </ul>         
+                  <button class="button">Bilgi Alın</button>
+                </div>
+
+             
+                <div class="kart" id="kart1" onclick="kartDetayGoster(1)">
+                    <h2 style="color: #414895;white-space: nowrap;font-size: 28px;">Online Grup Dersleri</h2>
+                  <ul>
+                    <li><span class="yesil-tik">&#10004;</span> Skype üzerinden dersler</li>
+                    <li><span class="yesil-tik">&#10004;</span>Ayda 8 Saat Ders</li>
+                    <li><span class="yesil-tik">&#10004;</span>Haftalık ödev takibi</li>
+                    <li><span class="yesil-tik">&#10004;</span>Online Turnuvalar</li>
+                  </ul>
+                  <button class="button">Bilgi Alın</button>
+                </div>
+
+              
+          </div>
+          
+          
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 style="font-size: 30px; font-weight: 800;">SATRANCIN FAYDALARI​</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="content">
+           <p> <span>⭐️</span>Konulara karşı şüpheci yaklaşımı benimsetir, onları ezberci zihniyetten arındırır.</p>
+           <p> <span>⭐️</span>Kişileri düşünen, araştıran, yargılayan varlıklar haline getirir ve yaratıcılıklarında özgür bırakan bir ortam hazırlar.</p>
+           <p> <span>⭐️</span>Süratli, doğru ve çabuk düşünebilmeye yardımcı olur, olaylara doğru yorumlarla yaklaşabilme yeteneklerini geliştirir.</p>
+           <p> <span>⭐️</span>Kişiliği ve karekteri olumlu yönde etkiler ve geliştirir.</p>
+           <p> <span>⭐️</span>"Kendine güven" duygusu aşılar ve bunu geliştirir.</p>
+           <p> <span>⭐️</span>Kendi güç ve yeteneklerini daha iyi tanıyarak, bireysel güç ve yetenekleri açığa çıkarmaya ve bireysel doğru kararlar alabilmeye yardımcı olur.</p>
+        </div>
+        
+      </div>
+      <div class="col-md-4">
+        <img src="img/r4.jpg" class="img-fluid">
+      </div>
+      <div class="col-md-4">
+        <div class="content">
+          <p> <span>⭐️</span>Başarıya ancak ve ancak sistemli ve disiplinli bir çalışmayla varılabileceğini gösterir.</p>
+          <p> <span>⭐️</span>Mücadeleci bir ruh yapısına sahip olmanın gerekliliğini benimsetir.</p>
+          <p> <span>⭐️</span>Başarısızlıklar karşısında yılmamayı, başarı için daha da çok çalışmanın gerekli olduğunu öğretir.</p>
+          <p> <span>⭐️</span>Başarılardan büyük hazlar duyarak daha da başarılı olmaya yönlendirir.</p>
+          <p> <span>⭐️</span>Kurallara uymayı, dostça oynamayı, kaybetmeyi kabullenmeyi, kazananı kutlamayı öğretir.</p>
+          <p> <span>⭐️</span>Yakın dostluklar kurup daha çok sosyalleşmeye ve sosyal yaşamının zenginleşmesine yardımcı olur.</p>
+          <p> <span>⭐️</span>Kötü alışkanlıklar edinilmesine engel olur.</p>
+        </div>      
+      </div>
+    </div>
+  </div>
+
+
+        
+           <!--resim galerisi-->
+  <div style="margin-left: 50px;" class="galeri">
+    <a href="img/sat1.jpg">
+     <img src="img/sat1.jpg" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   <div style="margin-left: 50px;" class="galeri">
+     <a href="img/sat2.jpg">
+     <img src="img/sat2.jpg" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   <div style="margin-left: 50px;" class="galeri">
+     <a href="img/sat3.jpg">
+     <img src="img/sat3.jpg" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   <div style="margin-left: 50px;" class="galeri">
+     <a href="img/b1.png">
+     <img src="img/b1.png" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   <div style="margin-left: 50px;" class="galeri">
+     <a href="img/07.jpg">
+     <img src="img/07.jpg" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   <div style="margin-left: 50px;" class="galeri">
+     <a href="img/06.jpg">
+     <img src="img/06.jpg" width="500" height="300">
+   </a>
+     <div class="aciklama">Bu bir açıklama metni.Örnek olarak verilmiştir</div>
+   </div>
+ 
+   
+
+   <!--yenş bölüm-->
+   <div class="container">
+    <h1 >chess moves</h1>
+    <div class="boxes">
+      <div class="box">
+        <p class="icon">&#x265A</p>
+        <h2>The King</h2>
+        <p class="piece-count">1 piece</p>
+        The King can move just one square at a time in any direction. It should be defended at all times by the other pieces as once checkmated the game is lost.
+      </div>
+      <div class="box">
+        <p class="icon">&#x265B</p>
+        <h2>The Queen</h2>
+        <p class="piece-count">1 piece</p>
+        The most powerful piece on the board, the Queen can move any number of squares in straight lines or on the diagonal until obstructed by another piece.
+      </div>
+      <div class="box">
+        <p class="icon">&#x265C</p>
+        <h2>The Rook</h2>
+        <p class="piece-count">2 pieces</p>
+        After the Queen the Rook is the next most powerful piece on the board. It can move any number of squares in a straight line until obstructed by another piece.
+      </div>
+    </div>
+    <div class="boxes">
+      <div class="box">
+        <p class="icon">&#x265D</p>
+        <h2>The Bishop</h2>
+        <p class="piece-count">2 pieces</p>
+        The Bishop can move any number of squares on the diagonal until obstructed by another piece. Each Bishop will always occupy squares of the same colour as it's starting square.
+      </div>
+      <div class="box">
+        <p class="icon">&#x265E</p>
+        <h2>The Knight</h2>
+        <p class="piece-count">2 pieces</p>
+        The Knight can move to any of the eight squares of the opposite colour to the one on which it stands that are either two ranks or two files away. It's move is not obstructed by other pieces.
+      </div>
+      <div class="box">
+        <p class="icon">&#x265F</p>
+        <h2>The Pawn</h2>
+        <p class="piece-count">8 pieces</p>
+        Considered the weakest piece on the board the Pawn can only move forward one square at a time on the same file, except for it's first move when it can move two squares forward. On reaching the eighth rank a Pawn can be promoted to the value of any other piece.
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
